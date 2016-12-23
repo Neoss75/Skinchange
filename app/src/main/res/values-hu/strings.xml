@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Skin cserélő</string>
+    <string name="text_button_id1">Alap skin</string>
+    <string name="text_button_id2">Pongo skin</string>
+    <string name="text_close_program">Skin csere után zárja be a programot</string>
+    <string name="text_for_4pda">Kifejezetten a 4pda számára\nfordította Indiant</string>
+    <string name="text_input_ok">Ok</string>
+    <string name="text_input_path">iGO Avic könyvtár elérési útvonala</string>
+    <string name="text_run_igo">iGO Avic futtatása</string>
+    <string name="text_skin_default">Alap skin berakva</string>
+    <string name="text_skin_pongo">Pongo skin berakva</string>
+    <string name="text_toast_no">Útvonal nem található!</string>
+    <string name="text_toast_notfound">Program nem található!</string>
+    <string name="text_toast_ok">Mentve!</string>
+    <string name="title_settings">Beállítások</string>
+    <string name="toast_exit">Nyomja meg még egyszer a kilépéshez!</string>
+    <string name="toast_succeeded">Siker</string>
+    <string name="text_button_alt">Alternative skin</string>
+    <string name="text_skin_alt">Skin alternative include</string>
+</resources>

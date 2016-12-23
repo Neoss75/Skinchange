@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">Kujunduse vahetaja</string>
+<string name="text_button_alt">Alternatiivne kujundus</string>
+<string name="text_button_id1">Standardne kujundus</string>
+<string name="text_button_id2">pongo kujundus</string>
+<string name="text_close_program">Sulgeda programm pärast kujunduse vahetamist</string>
+<string name="text_for_4pda">4pda eriversioon</string>
+<string name="text_input_ok">OK</string>
+<string name="text_input_path">iGO Avic rajanimi</string>
+<string name="text_run_igo">Käivitada iGO Avic</string>
+<string name="text_skin_alt">Seatud alternatiivne kujundus</string>
+<string name="text_skin_default">Seatud standardne kujundus</string>
+<string name="text_skin_pongo">Seatud pongo kujundus</string>
+<string name="text_toast_no">Kaust ei ole leitav!</string>
+<string name="text_toast_notfound">Rakendust ei leitud!</string>
+<string name="text_toast_ok">Edukalt salvestatud!</string>
+    <string name="title_settings">Seaded</string>
+<string name="toast_exit">Vajuta kaks korda väljumiseks!</string>
+<string name="toast_succeeded">Tehtud!</string>
+</resources>

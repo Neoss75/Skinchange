@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Αλλαγή δέρματος(Skin)</string>
+    <string name="text_input_path">Εισάγετε τήν διαδρομή προς iGO Avic</string>
+    <string name="text_button_id1">Προεπιλεγμένο δέρμα</string>
+    <string name="text_button_id2">Δέρμα Pongo</string>
+    <string name="text_toast_ok">Αποθηκεύτηκε!</string>
+    <string name="text_toast_no">Η διαδρομή δεν βρέθηκε!</string>
+    <string name="toast_exit">Πατήστε το πλήκτρο για έξοδο!</string>
+    <string name="toast_succeeded">Αλλαγή</string>
+    <string name="text_skin_pongo">Δέρμα pongo περιλαμβάνεται</string>
+    <string name="text_skin_default">Προεπιλεγμένο δέρμα περιλαμβάνεται</string>
+    <string name="text_for_4pda">Ειδικά γιά 4pda</string>
+    <string name="text_close_program">Κλείσε το πρόγραμμα με την αλλαγή δέρματος(skin)</string>
+    <string name="text_run_igo">Εκτέλεση iGO Avic</string>
+    <string name="text_input_ok">Ok</string>
+    <string name="text_toast_notfound">Η εφαρμογή δεν βρέθηκε!</string>
+    <string name="title_settings">Ρυθμίσεις</string>
+    <string name="text_button_alt">Εναλλακτικό δέρμα</string>
+    <string name="text_skin_alt">Εναλλακτικό δέρμα περιλαμβάνεται</string>
+</resources>

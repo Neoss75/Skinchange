@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\Pictures\111\Skinchange\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        revision="25.0.1"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="D:\Pictures\111\Skinchange\app\build\intermediates\transforms\preJackPackagedLibraries\release\jars\8000\1f\classes-74e74cb6cbaa89729d4f4a6cd410c626916a380b.jar" />
+    </item>
+    <item
+        jar="D:\Pictures\111\Skinchange\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        revision="25.0.1"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="D:\Pictures\111\Skinchange\app\build\intermediates\transforms\preJackPackagedLibraries\release\jars\8000\1f\classes-0c1bf5ea49d0ccf6789743c6a0aad9c4dd558a82.jar" />
+    </item>
+    <item
+        jar="D:\Pictures\111\Skinchange\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        revision="25.0.1"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="D:\Pictures\111\Skinchange\app\build\intermediates\transforms\preJackPackagedLibraries\release\jars\8000\1f\internal_impl-23.1.1-d4ab70b20df7392b735135d77df27727aecfec62.jar" />
+    </item>
+    <item
+        jar="C:\Users\Neoss75\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        revision="25.0.1"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="D:\Pictures\111\Skinchange\app\build\intermediates\transforms\preJackPackagedLibraries\release\jars\8000\1f\support-annotations-23.1.1-5f15d34092d7f6ec8b8359e1f6bf11f842ee047c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Neoss75\AppData\Local\Android\sdk\platforms\android-23\optional\org.apache.http.legacy.jar"
+        revision="25.0.1"
+        sha1="017030d11901291abf8f83a812984276b643ea0f">
+        <dex dex="D:\Pictures\111\Skinchange\app\build\intermediates\transforms\preJackRuntimeLibraries\release\jars\8000\40\org.apache.http.legacy-4bbe93df8449de37a5b76c0dcbfdac24aeea168f.jar" />
+    </item>
+    <item
+        jar="C:\Users\Neoss75\AppData\Local\Android\sdk\platforms\android-23\android.jar"
+        revision="25.0.1"
+        sha1="eee3e49de0e3c71c5f278ba7e4fe847483f9084c">
+        <dex dex="D:\Pictures\111\Skinchange\app\build\intermediates\transforms\preJackRuntimeLibraries\release\jars\8000\40\android-3e1a4f638833daaaf6eba9ce6f09755abc1d70bf.jar" />
+    </item>
+
+</items>

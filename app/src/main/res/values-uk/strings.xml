@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Зміна скіна</string>
+    <string name="text_button_id1">Стандартний скін</string>
+    <string name="text_button_id2">pongo скін</string>
+    <string name="text_close_program">Закривати програму після зміни скіна</string>
+    <string name="text_for_4pda">Спеціально для 4pda</string>
+    <string name="text_input_ok">Ок</string>
+    <string name="text_input_path">Введіть шлях до папки iGO Avic</string>
+    <string name="text_run_igo">Запускати iGO Avic</string>
+    <string name="text_skin_default">Скін стандарт ввімкнено</string>
+    <string name="text_skin_pongo">Скін pongo ввімкнено</string>
+    <string name="text_toast_no">Папку не знайдено!</string>
+    <string name="text_toast_notfound">Програма не знайдена!</string>
+    <string name="text_toast_ok">Успішно виконано!</string>
+    <string name="toast_exit">Два рази для закриття!</string>
+    <string name="toast_succeeded">Виконано!</string>
+    <string name="title_settings">Налаштування</string>
+    <string name="text_button_alt">Альтернативний скін</string>
+    <string name="text_skin_alt">Альтернативний скін ввімкнено</string>
+</resources>

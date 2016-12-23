@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Schimbare Skin</string>
+    <string name="text_button_id1">Skin implicit</string>
+    <string name="text_button_id2">Skin pongo</string>
+    <string name="text_close_program">Închidere după schimbare skin</string>
+    <string name="text_for_4pda">Special pentru 4pda</string>
+    <string name="text_input_ok">OK</string>
+    <string name="text_input_path">Introducere cale către iGO Avic</string>
+    <string name="text_run_igo">Pornire navigaţie iGO Avic după schimbare Skin</string>
+    <string name="text_skin_default">Skin standard folosit</string>
+    <string name="text_skin_pongo">Skin pongo folosit</string>
+    <string name="text_toast_no">Calea introdusă NU există !</string>
+    <string name="text_toast_notfound">Programul NU există !</string>
+    <string name="text_toast_ok">Finalizat cu succes!</string>
+    <string name="toast_exit">Tastaţi de două ori pentru închidere!</string>
+    <string name="toast_succeeded">Schimbare cu succes !</string>
+    <string name="title_settings">Setări</string>
+    <string name="text_button_alt">Skin alternativ</string>
+    <string name="text_skin_alt">Skin alternativ folosit</string>
+</resources>

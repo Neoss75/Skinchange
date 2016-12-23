@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Zmena vzhledu</string>
+    <string name="text_button_id1">Standardni vzhled</string>
+    <string name="text_button_id2">pongo vzhled</string>
+    <string name="text_input_path">Zadejte cestu ke slozce iGO Avic</string>
+    <string name="text_toast_ok">Uspesne ulozeno!</string>
+    <string name="text_toast_no">Slozka nenalezena!</string>
+    <string name="toast_exit">dvakrat pro vystup!</string>
+    <string name="toast_succeeded">Hotovo!</string>
+    <string name="text_skin_pongo">Skin pongo zapnuto</string>
+    <string name="text_skin_default">Skin standard zapnuto</string>
+    <string name="text_for_4pda">Specialne pro 4pda</string>
+    <string name="text_close_program">Zavrit program po zmene vzhledu</string>
+    <string name="text_run_igo">Spustit iGO Avic</string>
+    <string name="text_input_ok">Ok</string>
+    <string name="text_toast_notfound">Aplikace nenalezena!</string>
+    <string name="title_settings">Nastavení</string>
+    <string name="text_button_alt">Alternative skin</string>
+    <string name="text_skin_alt">Skin alternative include</string>
+</resources>

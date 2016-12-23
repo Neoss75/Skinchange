@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Смяна на скин</string>
+    <string name="text_button_id1">Стандартен скин</string>
+    <string name="text_button_id2">Скин pongo</string>
+    <string name="text_input_path">Въведете пътя към папката iGO Avic</string>
+    <string name="text_toast_ok">Съхранено успешно!</string>
+    <string name="text_toast_no">Папката не е намерена!</string>
+    <string name="toast_exit">Два пъти за изход!</string>
+    <string name="toast_succeeded">Изпълнено!</string>
+    <string name="text_skin_pongo">Включен скин pongo</string>
+    <string name="text_skin_default">Включен стандартен скин</string>
+    <string name="text_for_4pda">Специално за 4pda</string>
+    <string name="text_close_program">Изход от приложението след смяна на скина</string>
+    <string name="text_run_igo">Стартиране на iGO Avic</string>
+    <string name="text_input_ok">Ок</string>
+    <string name="text_toast_notfound">Приложението не е намерено!</string>
+    <string name="title_settings">Settings</string>
+    <string name="text_button_alt">Alternative skin</string>
+    <string name="text_skin_alt">Skin alternative include</string>
+</resources>

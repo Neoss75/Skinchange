@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ādiņas mainītājs</string>
+    <string name="text_input_path">Norādi ceļu uz iGO Avic</string>
+    <string name="text_button_id1">Noklusējuma ādiņa</string>
+    <string name="text_button_id2">Pongo ādiņa</string>
+    <string name="text_toast_ok">Saglabāts!</string>
+    <string name="text_toast_no">Norādītais ceļš nav atrasts!</string>
+    <string name="toast_exit">Nospied vēlreiz, lai IZIETU!</string>
+    <string name="toast_succeeded">Darīts</string>
+    <string name="text_skin_pongo">Pongo ādiņa ietver</string>
+    <string name="text_skin_default">Noklusējuma ādiņa ietver</string>
+    <string name="text_for_4pda">Speciāli priekš 4pda</string>
+    <string name="text_close_program">Aizvērt programmu pēc ādiņas nomainīšanas</string>
+    <string name="text_run_igo">Palaist iGO Avic</string>
+    <string name="text_input_ok">Labi</string>
+    <string name="text_toast_notfound">Aplikācija nav atrasta!</string>
+    <string name="title_settings">Iestatījumi</string>
+    <string name="text_button_alt">Alternatīvā ādiņa</string>
+    <string name="text_skin_alt">Alternatīvā ādiņa ietver</string>
+</resources>
