@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Preference
+        app:key="igo_folder"
+        app:title="@string/pref_folder"
+        app:iconSpaceReserved="false" />
+    <SwitchPreferenceCompat
+        app:key="close_after_switch"
+        app:defaultValue="false"
+        app:title="@string/pref_close"
+        app:iconSpaceReserved="false" />
+    <SwitchPreferenceCompat
+        app:key="launch_igo"
+        app:defaultValue="false"
+        app:title="@string/pref_launch"
+        app:iconSpaceReserved="false" />
+    <ListPreference
+        app:key="igo_package"
+        app:dependency="launch_igo"
+        app:entries="@array/navigator_packages"
+        app:entryValues="@array/navigator_packages"
+        app:title="@string/pref_package"
+        app:useSimpleSummaryProvider="true"
+        app:iconSpaceReserved="false" />
+</PreferenceScreen>
