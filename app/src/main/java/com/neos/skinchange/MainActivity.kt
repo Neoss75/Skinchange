@@ -19,19 +19,18 @@ import kotlinx.coroutines.withContext
 class MainActivity : AppCompatActivity() {
 
     private lateinit var status: TextView
-    private lateinit var buttons: Map<Skin, Button>
+    /** Buttons for skins 1..4, index 0 = skin 1. */
+    private lateinit var buttons: List<Button>
+    private var state: SkinSwitcher.State? = null
     private var busy = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         status = findViewById(R.id.status)
-        buttons = mapOf(
-            Skin.DEFAULT to findViewById(R.id.button_default),
-            Skin.PONGO to findViewById(R.id.button_pongo),
-            Skin.ALT to findViewById(R.id.button_alt),
-        )
-        buttons.forEach { (skin, button) -> button.setOnClickListener { switchTo(skin) } }
+        buttons = listOf(R.id.button_skin1, R.id.button_skin2, R.id.button_skin3, R.id.button_skin4)
+            .map { findViewById(it) }
+        buttons.forEachIndexed { i, button -> button.setOnClickListener { switchTo(i + 1) } }
         findViewById<TextView>(R.id.version).text = getString(R.string.version, versionName())
     }
 
@@ -52,23 +51,35 @@ class MainActivity : AppCompatActivity() {
             return
         }
         lifecycleScope.launch {
-            val state = withContext(Dispatchers.IO) { switcher.state() }
-            render(state, if (state == null) getString(R.string.status_no_marker) else null)
+            val s = withContext(Dispatchers.IO) { switcher.state() }
+            render(s, if (s == null) getString(R.string.status_no_marker) else null)
         }
     }
 
-    private fun render(state: SkinSwitcher.State?, message: String?) {
-        status.text = message ?: getString(R.string.status_current, skinName(state!!.current))
-        buttons.forEach { (skin, button) ->
-            button.visibility = if (state == null || skin in state.available) View.VISIBLE else View.GONE
-            button.isEnabled = !busy && state != null && skin != state.current
+    private fun render(s: SkinSwitcher.State?, message: String?) {
+        state = s
+        status.text = message ?: buildString {
+            append(getString(R.string.status_current, skinName(s!!, s.current)))
+            if (s.config == null) append("\n").append(getString(R.string.status_no_sys_txt))
+        }
+        val quantity = s?.quantity ?: 0
+        buttons.forEachIndexed { i, button ->
+            val skin = i + 1
+            button.visibility = if (skin <= quantity) View.VISIBLE else View.GONE
+            if (s == null || skin > quantity) return@forEachIndexed
+            button.text = when {
+                skin == s.current -> getString(R.string.button_active, skinName(s, skin))
+                skin !in s.available -> getString(R.string.button_missing, skinName(s, skin))
+                else -> skinName(s, skin)
+            }
+            button.isEnabled = !busy && skin != s.current && skin in s.available
         }
     }
 
-    private fun switchTo(target: Skin) {
+    private fun switchTo(target: Int) {
         val switcher = switcher() ?: return
         busy = true
-        buttons.values.forEach { it.isEnabled = false }
+        buttons.forEach { it.isEnabled = false }
         lifecycleScope.launch {
             val result = withContext(Dispatchers.IO) { switcher.switchTo(target) }
             busy = false
@@ -97,13 +108,9 @@ class MainActivity : AppCompatActivity() {
         if (p.getBoolean(KEY_CLOSE, false)) finish()
     }
 
-    private fun skinName(skin: Skin) = getString(
-        when (skin) {
-            Skin.DEFAULT -> R.string.skin_default
-            Skin.PONGO -> R.string.skin_pongo
-            Skin.ALT -> R.string.skin_alt
-        }
-    )
+    /** Name from sys.txt, or "Skin N". */
+    private fun skinName(s: SkinSwitcher.State, skin: Int): String =
+        s.config?.name(skin) ?: getString(R.string.skin_fallback, skin)
 
     @Suppress("DEPRECATION")
     private fun versionName(): String = packageManager.getPackageInfo(packageName, 0).versionName ?: ""

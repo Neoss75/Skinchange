@@ -11,8 +11,8 @@ android {
         applicationId = "com.neos.skinchange"
         minSdk = 21
         targetSdk = 35
-        versionCode = 200
-        versionName = "2.0.0"
+        versionCode = 210
+        versionName = "2.1.0"
     }
 
     // Release signing comes from environment variables so no secrets live in the repo:

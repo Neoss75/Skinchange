@@ -17,23 +17,30 @@
             android:layout_marginBottom="16dp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
+        <!-- Labels come from sys.txt; how many are shown is skin_quantity (2–4). -->
         <Button
-            android:id="@+id/button_default"
+            android:id="@+id/button_skin1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_default" />
+            android:visibility="gone" />
 
         <Button
-            android:id="@+id/button_pongo"
+            android:id="@+id/button_skin2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_pongo" />
+            android:visibility="gone" />
 
         <Button
-            android:id="@+id/button_alt"
+            android:id="@+id/button_skin3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_alt" />
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/button_skin4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
 
         <Space
             android:layout_width="match_parent"
