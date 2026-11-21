@@ -4,6 +4,16 @@ Android-приложение, которое одним нажатием пер�
 
 > *English:* an Android app that switches between 2–4 iGO navigator skins by renaming the skin folders. The number of skins and the button names come from the `[skin_changer]` section of `sys.txt`. Failed switches are rolled back. Android 5.0+.
 
+## Скриншоты
+
+<table>
+  <tr>
+    <td align="center"><img src="docs/screenshots/main.png" width="240" alt="Главный экран: четыре кнопки скинов"><br>Главный экран</td>
+    <td align="center"><img src="docs/screenshots/settings.png" width="240" alt="Настройки"><br>Настройки</td>
+    <td align="center"><img src="docs/screenshots/navigator.png" width="240" alt="Выбор навигатора из установленных приложений"><br>Выбор навигатора</td>
+  </tr>
+</table>
+
 ## Как это работает
 
 Активный скин лежит в папках `save` и `ux`. Остальные скины ждут своей очереди в папках с номером:
