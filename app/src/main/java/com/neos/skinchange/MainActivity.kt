@@ -21,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
 import androidx.core.widget.ImageViewCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.widget.TextViewCompat
 import android.view.Gravity
 import android.widget.LinearLayout
@@ -49,10 +50,26 @@ class MainActivity : AppCompatActivity() {
         val value: TextView = root.findViewById(R.id.info_value)
         private val note: TextView = root.findViewById(R.id.info_note)
 
+        private val icon: ImageView = root.findViewById(R.id.info_icon)
+        private val defaultIcon = iconRes
+
         init {
-            root.findViewById<ImageView>(R.id.info_icon).setImageResource(iconRes)
+            icon.setImageResource(iconRes)
             root.findViewById<TextView>(R.id.info_label).setText(labelRes)
             root.setOnClickListener { onClick() }
+        }
+
+        /** Shows an app icon as is, or the row's own white icon when [drawable] is null. */
+        fun setIcon(drawable: android.graphics.drawable.Drawable?) {
+            if (drawable == null) {
+                icon.setImageResource(defaultIcon)
+                ImageViewCompat.setImageTintList(icon, ColorStateList.valueOf(0xFFFFFFFF.toInt()))
+                icon.alpha = 0.85f
+            } else {
+                icon.setImageDrawable(drawable)
+                ImageViewCompat.setImageTintList(icon, null)
+                icon.alpha = 1f
+            }
         }
 
         fun setNote(text: String?) {
@@ -351,6 +368,7 @@ class MainActivity : AppCompatActivity() {
 
         val p = prefs()
         val pkg = profiles.active().pkg
+        navigatorRow.setIcon(pkg?.let { AppList.icon(this, it) })
         navigatorRow.value.text = when (pkg) {
             null -> getString(R.string.info_not_set)
             else -> AppList.label(this, pkg) ?: getString(R.string.pref_package_missing, pkg)
@@ -379,10 +397,16 @@ class MainActivity : AppCompatActivity() {
                 setTextColor(fg)
                 gravity = Gravity.CENTER_VERTICAL
                 minHeight = (44 * density).toInt()
-                setPadding((14 * density).toInt(), 0, (18 * density).toInt(), 0)
-                setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_car, 0, 0, 0)
+                // The navigator's own app icon; a car when no app is chosen or it is not installed.
+                val appIcon = profile.pkg?.let { AppList.icon(this@MainActivity, it) }
+                val icon = appIcon ?: ContextCompat.getDrawable(this@MainActivity, R.drawable.ic_car)!!.mutate().also {
+                    DrawableCompat.setTint(it, fg)
+                }
+                val size = ((if (appIcon != null) 28 else 20) * density).toInt()
+                icon.setBounds(0, 0, size, size)
+                setCompoundDrawablesRelative(icon, null, null, null)
                 compoundDrawablePadding = (8 * density).toInt()
-                TextViewCompat.setCompoundDrawableTintList(this, ColorStateList.valueOf(fg))
+                setPadding(((if (appIcon != null) 10 else 14) * density).toInt(), 0, (18 * density).toInt(), 0)
                 val pill = PillDrawable(density).apply {
                     fillColor = if (selected) 0xF7FFFFFF.toInt() else 0x2EFFFFFF
                     strokeColor = if (selected) 0 else 0x4DFFFFFF
