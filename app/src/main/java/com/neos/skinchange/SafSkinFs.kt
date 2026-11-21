@@ -14,15 +14,18 @@ class SafSkinFs(private val context: Context, treeUri: Uri) : SkinFs {
 
     override fun dirExists(name: String) = dir(name) != null
 
-    override fun readMarker(dir: String): String? {
-        val file = dir(dir)?.findFile(MARKER)?.takeIf { it.isFile } ?: return null
-        return try {
-            context.contentResolver.openInputStream(file.uri)?.use { it.bufferedReader().readText() }
-        } catch (e: IOException) {
-            null
-        } catch (e: SecurityException) {
-            null
-        }
+    override fun readMarker(dir: String): String? =
+        dir(dir)?.findFile(MARKER)?.takeIf { it.isFile }?.let(::readBytes)?.let(SkinConfig::decode)
+
+    override fun readRootFile(name: String): ByteArray? =
+        root?.findFile(name)?.takeIf { it.isFile }?.let(::readBytes)
+
+    private fun readBytes(file: DocumentFile): ByteArray? = try {
+        context.contentResolver.openInputStream(file.uri)?.use { it.readBytes() }
+    } catch (e: IOException) {
+        null
+    } catch (e: SecurityException) {
+        null
     }
 
     override fun rename(from: String, to: String): Boolean = try {

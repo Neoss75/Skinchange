@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Смена скина</string>
     <string name="action_settings">Настройки</string>
     <string name="version">Версия %1$s</string>
 
-    <string name="button_default">Стандартный скин</string>
-    <string name="button_pongo">Скин pongo</string>
-    <string name="button_alt">Альтернативный скин</string>
-    <string name="skin_default">стандартный</string>
-    <string name="skin_pongo">pongo</string>
-    <string name="skin_alt">альтернативный</string>
+    <string name="skin_fallback">Скин %1$d</string>
+    <string name="button_active">%1$s (включён)</string>
+    <string name="button_missing">%1$s (папки не найдены)</string>
 
     <string name="status_current">Включён скин: %1$s</string>
+    <string name="status_no_sys_txt">В sys.txt нет раздела [skin_changer]: количество скинов определено по папкам.</string>
     <string name="status_no_folder">Папка iGO не выбрана. Откройте настройки и выберите её.</string>
-    <string name="status_no_marker">Файл save.ch не найден ни в ux, ни в save. Проверьте папку iGO в настройках.</string>
+    <string name="status_no_marker" tools:ignore="Typos">Файл save.ch со значением skin_1…skin_4 не найден ни в ux, ни в save. Проверьте папку iGO в настройках.</string>
 
     <string name="toast_done">Выполнено!</string>
     <string name="toast_failed">Не удалось переключить (%1$s). Ничего не изменено.</string>
     <string name="toast_failed_partial">Не удалось переключить (%1$s) и отменить изменения. Проверьте папку iGO!</string>
     <string name="toast_no_app">Навигатор не найден</string>
     <string name="toast_folder_ok">Папка iGO найдена</string>
-    <string name="toast_folder_bad">В ux или save этой папки нет файла save.ch</string>
+    <string name="toast_folder_bad" tools:ignore="Typos">В ux или save этой папки нет save.ch со значением skin_1…skin_4</string>
 
     <string name="pref_folder">Папка iGO</string>
     <string name="pref_folder_not_set">Не выбрана</string>
     <string name="pref_close">Закрывать программу после смены скина</string>
     <string name="pref_launch">Запускать iGO после смены скина</string>
     <string name="pref_package">Пакет навигатора</string>
+    <string name="pref_package_not_set">Не выбран. Нажмите, чтобы выбрать из установленных приложений.</string>
+    <string name="pref_package_missing">%1$s (не установлен)</string>
+    <string name="apps_loading">Загружаю список приложений…</string>
+    <string name="app_selected">✓ %1$s</string>
 </resources>
