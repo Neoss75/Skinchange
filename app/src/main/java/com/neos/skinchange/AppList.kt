@@ -52,6 +52,13 @@ object AppList {
         null
     }
 
+    /** The launcher icon of an installed app, or null if the package is not installed. */
+    fun icon(context: Context, packageName: String): Drawable? = try {
+        context.packageManager.getApplicationIcon(packageName)
+    } catch (e: PackageManager.NameNotFoundException) {
+        null
+    }
+
     /** "iGO Primo (com.nng.igo.primong)", or null if the package is not installed. */
     fun describe(context: Context, packageName: String): String? =
         label(context, packageName)?.let { "$it ($packageName)" }
