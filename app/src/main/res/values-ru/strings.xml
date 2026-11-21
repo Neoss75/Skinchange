@@ -2,15 +2,41 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Смена скина</string>
     <string name="action_settings">Настройки</string>
+    <string name="action_about">О программе</string>
+    <string name="about_text">Переключает скины iGO, переименовывая папки save и ux. Количество скинов и их названия берутся из раздела [skin_changer] файла sys.txt.\n\ngithub.com/Neoss75/Skinchange</string>
     <string name="version">Версия %1$s</string>
 
     <string name="skin_fallback">Скин %1$d</string>
-    <string name="button_active">%1$s (включён)</string>
-    <string name="button_missing">%1$s (папки не найдены)</string>
 
-    <string name="status_current">Включён скин: %1$s</string>
-    <string name="status_no_sys_txt">В sys.txt нет раздела [skin_changer]: количество скинов определено по папкам.</string>
-    <string name="status_no_folder">Папка iGO не выбрана. Откройте настройки и выберите её.</string>
+    <string name="hero_label">Включён скин</string>
+    <string name="hero_sub">Скин %1$d из %2$d</string>
+    <string name="hero_empty">—</string>
+    <string name="hero_no_folder">Выберите папку iGO</string>
+
+    <string name="skins_title">Скины</string>
+    <string name="skin_state_active">Включён сейчас</string>
+    <string name="skin_state_ready">Нажмите, чтобы включить</string>
+    <string name="skin_state_missing">Папки не найдены</string>
+    <string name="skin_state_switching">Переключаю…</string>
+
+    <string name="info_title">Дополнительно</string>
+    <string name="info_folder">Папка iGO</string>
+    <string name="info_mode_ux">Переключается только ux</string>
+    <string name="info_mode_both">Переключаются save и ux</string>
+    <string name="info_sys">sys.txt</string>
+    <string name="info_sys_ok">Раздел [skin_changer], скинов: %1$d</string>
+    <string name="info_sys_names">Названия: %1$s</string>
+    <string name="info_sys_missing">Нет раздела [skin_changer]</string>
+    <string name="info_sys_missing_note">Количество скинов определено по папкам</string>
+    <string name="info_navigator">Навигатор</string>
+    <string name="info_navigator_autostart">Запускается после смены скина</string>
+    <string name="info_navigator_no_autostart">Автозапуск выключен</string>
+    <string name="info_close">Программа закрывается после смены скина</string>
+    <string name="info_not_set">Не выбран</string>
+    <string name="info_internal_storage">Внутренняя память</string>
+    <string name="info_sd_card">Карта памяти %1$s</string>
+
+    <string name="status_no_folder">Для этого навигатора не выбрана папка iGO. Нажмите, чтобы выбрать.</string>
     <string name="status_no_marker" tools:ignore="Typos">Файл save.ch со значением skin_1…skin_4 не найден ни в ux, ни в save. Проверьте папку iGO в настройках.</string>
 
     <string name="toast_done">Выполнено!</string>
@@ -27,6 +53,40 @@
     <string name="pref_package">Пакет навигатора</string>
     <string name="pref_package_not_set">Не выбран. Нажмите, чтобы выбрать из установленных приложений.</string>
     <string name="pref_package_missing">%1$s (не установлен)</string>
+    <string name="pref_animations">Анимации</string>
+    <string name="pref_animations_summary">Движущийся фон и эффекты на главном экране. Работают, даже если системные анимации выключены.</string>
     <string name="apps_loading">Загружаю список приложений…</string>
     <string name="app_selected">✓ %1$s</string>
+
+    <string name="action_help">Справка</string>
+    <string name="profile_fallback">iGO %1$d</string>
+    <string name="pref_cat_navigators">Навигаторы</string>
+    <string name="pref_cat_after">После смены скина</string>
+    <string name="pref_cat_look">Оформление и справка</string>
+    <string name="profile_add">Добавить навигатор</string>
+    <string name="profile_add_summary">Ещё один iGO со своей папкой и скинами (всего до %1$d)</string>
+    <string name="profile_active">Выбран на главном экране</string>
+    <string name="profile_no_folder">Папка iGO не выбрана</string>
+    <string name="profile_name">Название</string>
+    <string name="profile_name_hint">Оставьте пустым, чтобы взять название приложения навигатора.</string>
+    <string name="profile_name_auto">%1$s (автоматически)</string>
+    <string name="profile_delete">Удалить навигатор</string>
+    <string name="profile_delete_summary">Скины и папки останутся на месте</string>
+    <string name="profile_delete_confirm">Убрать «%1$s» из списка? Папки и скины не будут затронуты.</string>
+    <string name="profile_delete_button">Удалить</string>
+    <string name="pref_launch_summary">Открывается приложение того навигатора, в котором сменили скин</string>
+    <string name="pref_help">Справка</string>
+    <string name="pref_help_summary">Возможности программы и как её настроить</string>
+    <string name="help_1_title">Что умеет программа</string>
+    <string name="help_1_body" formatted="false"><![CDATA[Переключает скины навигатора iGO одним нажатием — дневной, ночной, зимний, какие у вас есть, от 2 до 4.<br><br>• Скин включается переименованием папок <tt>save</tt> и <tt>ux</tt>: ничего не копируется и не удаляется.<br>• Если переименовать не удалось, папки возвращаются как были.<br>• Можно добавить несколько навигаторов iGO, у каждого свои папка и скины.<br>• После смены скина программа может сама запустить навигатор или закрыться.]]></string>
+    <string name="help_2_title">Как подготовить скины</string>
+    <string name="help_2_body" formatted="false" tools:ignore="Typos"><![CDATA[Включённый скин лежит в папках <tt>save</tt> и <tt>ux</tt>, остальные — в папках с номером:<br><br><tt>IGO/<br>&#160;├ sys.txt<br>&#160;├ save/&#160;&#160;&#160;&#160;ux/&#160;&#160;&#160;&#160;← включённый<br>&#160;├ save_2/&#160;&#160;ux_2/<br>&#160;├ save_3/&#160;&#160;ux_3/<br>&#160;└ save_4/&#160;&#160;ux_4/</tt><br><br>В каждом скине должен быть файл <tt>save.ch</tt> с одной строкой — номером скина: <tt>skin_1</tt>, <tt>skin_2</tt> и так далее. По нему программа узнаёт, какой скин включён, и он переезжает вместе с папкой.<br><br>Если <tt>save.ch</tt> лежит в <tt>ux</tt>, а не в <tt>save</tt>, переключается только папка <tt>ux</tt>.]]></string>
+    <string name="help_3_title">Названия и количество: sys.txt</string>
+    <string name="help_3_body" formatted="false" tools:ignore="Typos"><![CDATA[В <tt>sys.txt</tt> в корне папки iGO добавьте раздел:<br><br><tt>[skin_changer]<br>skin_quantity = 4<br>skin_1 = &quot;Дневной&quot;<br>skin_2 = &quot;Ночной&quot;<br>skin_3 = &quot;Зимний&quot;<br>skin_4 = &quot;Контрастный&quot;</tt><br><br>• <b>skin_quantity</b> — сколько кнопок показать: 2, 3 или 4.<br>• <b>skin_1…skin_4</b> — надписи на кнопках. Без названия будет «Скин N».<br>• Если раздела нет, количество скинов определяется по найденным папкам.<br>• Подходят кодировки UTF-8, UTF-16 и Windows-1251. Остальные разделы программа не трогает.]]></string>
+    <string name="help_4_title">Несколько навигаторов</string>
+    <string name="help_4_body" formatted="false"><![CDATA[Если на устройстве стоят два-три iGO, например Primo и NextGen, добавьте каждый: <b>Настройки → Навигаторы → Добавить навигатор</b>. Для каждого выберите его папку iGO и приложение.<br><br>На главном экране сверху появятся кнопки навигаторов. Выберите нужный — кнопки скинов и цвета экрана переключатся на него. Программа запоминает последний выбор.<br><br>Название можно задать самому, иначе возьмётся название приложения навигатора.]]></string>
+    <string name="help_5_title">Первая настройка</string>
+    <string name="help_5_body" formatted="false"><![CDATA[1. Подготовьте папки скинов и файлы <tt>save.ch</tt>, как описано выше.<br>2. Откройте <b>Настройки</b>, выберите навигатор и нажмите <b>Папка iGO</b>. Найдите папку, в которой лежат <tt>save</tt> и <tt>ux</tt>, нажмите «Использовать эту папку» и разрешите доступ.<br>3. По желанию выберите <b>Пакет навигатора</b> и включите <b>Запускать iGO после смены скина</b>.<br>4. Вернитесь на главный экран и нажмите на нужный скин.<br><br>Перед сменой скина лучше закрыть навигатор: запущенный iGO может держать файлы скина открытыми.]]></string>
+    <string name="help_6_title">Если что-то не так</string>
+    <string name="help_6_body" formatted="false" tools:ignore="Typos"><![CDATA[• <b>«save.ch не найден»</b> — выбрана не та папка или в <tt>save.ch</tt> нет строки <tt>skin_N</tt>.<br>• <b>«Папки не найдены»</b> на кнопке — нет папок <tt>save_N</tt> и <tt>ux_N</tt> этого скина.<br>• <b>Скин не сменился</b> — программа вернёт папки обратно и покажет, на каком шаге была ошибка. Проверьте, что навигатор закрыт.<br>• <b>Не видно карты памяти</b> при выборе папки — включите её показ в меню «⋮» окна выбора.<br>• <b>Устройство тормозит</b> — выключите анимации в настройках.]]></string>
 </resources>

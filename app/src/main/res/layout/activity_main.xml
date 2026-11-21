@@ -1,58 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
+<!-- Merged into the window's content frame; the skin gradient is the window background. -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.neos.skinchange.ui.SkinBackdropView
+        android:id="@+id/backdrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:importantForAccessibility="no" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/status"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar"
+            app:title="@string/app_name"
+            app:titleTextColor="@color/on_skin" />
 
-        <!-- Labels come from sys.txt; how many are shown is skin_quantity (2–4). -->
-        <Button
-            android:id="@+id/button_skin1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
-
-        <Button
-            android:id="@+id/button_skin2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
-
-        <Button
-            android:id="@+id/button_skin3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
-
-        <Button
-            android:id="@+id/button_skin4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
-
-        <Space
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:fillViewport="true">
 
-        <TextView
-            android:id="@+id/version"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:textSize="12sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical"
+                android:paddingStart="20dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="16dp">
+
+                <include layout="@layout/view_profiles" />
+
+                <include layout="@layout/view_warning" />
+
+                <include layout="@layout/view_hero" />
+
+                <include layout="@layout/view_error" />
+
+                <include layout="@layout/view_skins" />
+
+                <include layout="@layout/view_info" />
+
+                <include layout="@layout/view_version" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
-</ScrollView>
+</merge>

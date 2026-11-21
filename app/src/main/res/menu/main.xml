@@ -3,6 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_settings"
+        android:icon="@drawable/ic_settings"
         android:title="@string/action_settings"
+        app:iconTint="@color/on_skin"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_help"
+        android:icon="@drawable/ic_help"
+        android:title="@string/action_help"
+        app:iconTint="@color/on_skin"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_about"
+        android:title="@string/action_about"
+        app:showAsAction="never" />
 </menu>

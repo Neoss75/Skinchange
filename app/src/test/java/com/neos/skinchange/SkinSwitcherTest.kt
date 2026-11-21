@@ -53,6 +53,12 @@ class SkinSwitcherTest {
         assertEquals("name 3", s.config!!.name(3))
     }
 
+    @Test fun `reports progress after every rename`() {
+        val steps = mutableListOf<Pair<Int, Int>>()
+        assertEquals(SkinSwitcher.Result.Ok, SkinSwitcher(fourSkins()).switchTo(2) { d, t -> steps += d to t })
+        assertEquals(listOf(1 to 4, 2 to 4, 3 to 4, 4 to 4), steps)
+    }
+
     @Test fun `switches save and ux and back`() {
         val fs = fourSkins()
         val sw = SkinSwitcher(fs)

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Buttons for skins 1..4; how many are shown is skin_quantity from sys.txt (2–4). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/skins"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/skins_title"
+        android:textAppearance="@style/TextAppearance.Skin.Label" />
+
+    <include
+        android:id="@+id/skin1"
+        layout="@layout/item_skin" />
+
+    <include
+        android:id="@+id/skin2"
+        layout="@layout/item_skin" />
+
+    <include
+        android:id="@+id/skin3"
+        layout="@layout/item_skin" />
+
+    <include
+        android:id="@+id/skin4"
+        layout="@layout/item_skin" />
+</LinearLayout>

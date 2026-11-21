@@ -11,8 +11,8 @@ android {
         applicationId = "com.neos.skinchange"
         minSdk = 21
         targetSdk = 35
-        versionCode = 210
-        versionName = "2.1.0"
+        versionCode = 220
+        versionName = "2.2.0"
     }
 
     // Release signing comes from environment variables so no secrets live in the repo:
@@ -56,6 +56,7 @@ android {
 dependencies {
     implementation("androidx.core:core-ktx:1.16.0")
     implementation("androidx.appcompat:appcompat:1.7.1")
+    implementation("com.google.android.material:material:1.13.0")
     implementation("androidx.preference:preference-ktx:1.2.1")
     implementation("androidx.documentfile:documentfile:1.1.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.9.4")

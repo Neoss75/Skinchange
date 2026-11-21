@@ -1,8 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
-        <item name="colorPrimary">#37474F</item>
-        <item name="colorPrimaryDark">#263238</item>
-        <item name="colorAccent">#FF8F00</item>
+    <style name="Base.AppTheme" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/md_primary</item>
+        <item name="colorOnPrimary">@color/md_on_primary</item>
+        <item name="colorPrimaryContainer">@color/md_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/md_on_primary_container</item>
+        <item name="colorSecondary">@color/md_secondary</item>
+        <item name="colorSecondaryContainer">@color/md_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/md_on_secondary_container</item>
+        <item name="colorTertiary">@color/md_tertiary</item>
+        <item name="android:colorBackground">@color/md_surface</item>
+        <item name="colorSurface">@color/md_surface</item>
+        <item name="colorOnSurface">@color/md_on_surface</item>
+    </style>
+
+    <style name="AppTheme" parent="Base.AppTheme" />
+
+    <!-- Main screen: own toolbar over the skin gradient. -->
+    <style name="AppTheme.Main">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/md_primary_container</item>
+    </style>
+
+    <style name="TextAppearance.Skin.Label" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textColor">@color/on_skin_muted</item>
     </style>
 </resources>

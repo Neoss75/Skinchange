@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One skin: number, name from sys.txt and what tapping it does. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:minHeight="62dp"
+    android:orientation="horizontal"
+    android:paddingStart="12dp"
+    android:paddingTop="8dp"
+    android:paddingEnd="22dp"
+    android:paddingBottom="8dp">
+
+    <TextView
+        android:id="@+id/skin_number"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:gravity="center"
+        android:textColor="@color/on_skin"
+        android:importantForAccessibility="no"
+        android:textAppearance="?attr/textAppearanceTitleMedium"
+        android:textStyle="bold"
+        tools:text="2" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/skin_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            tools:text="Ночной" />
+
+        <TextView
+            android:id="@+id/skin_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textAppearance="?attr/textAppearanceBodySmall"
+            tools:text="@string/skin_state_ready" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/skin_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:importantForAccessibility="no"
+        app:tint="@color/on_skin"
+        tools:src="@drawable/ic_chevron" />
+</LinearLayout>

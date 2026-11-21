@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One navigator. Stored by Profiles, not as plain preferences. -->
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+    <EditTextPreference
+        app:key="p_name"
+        app:persistent="false"
+        app:title="@string/profile_name"
+        app:dialogTitle="@string/profile_name"
+        app:dialogMessage="@string/profile_name_hint"
+        app:iconSpaceReserved="false" />
+    <Preference
+        app:key="p_folder"
+        app:title="@string/pref_folder"
+        app:iconSpaceReserved="false" />
+    <Preference
+        app:key="p_package"
+        app:title="@string/pref_package"
+        app:iconSpaceReserved="false" />
+    <Preference
+        app:key="p_delete"
+        app:title="@string/profile_delete"
+        app:summary="@string/profile_delete_summary"
+        app:iconSpaceReserved="false" />
+</PreferenceScreen>

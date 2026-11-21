@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The skin that is on now. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/hero"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp">
+
+    <FrameLayout
+        android:id="@+id/hero_badge"
+        android:layout_width="@dimen/hero_icon"
+        android:layout_height="@dimen/hero_icon">
+
+        <com.neos.skinchange.ui.HeroBadgeView
+            android:id="@+id/hero_glow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:importantForAccessibility="no" />
+
+        <ImageView
+            android:id="@+id/hero_icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_palette"
+            app:tint="@color/on_skin" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/hero_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/hero_label"
+        android:textAppearance="@style/TextAppearance.Skin.Label" />
+
+    <TextView
+        android:id="@+id/hero_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:maxLines="2"
+        android:textColor="@color/on_skin"
+        android:textSize="@dimen/hero_name"
+        tools:text="Ночной" />
+
+    <TextView
+        android:id="@+id/hero_sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textAppearance="?attr/textAppearanceBodyMedium"
+        android:textColor="@color/on_skin_muted"
+        tools:text="Скин 2 из 4" />
+</LinearLayout>
