@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Keep the classic layout under the action bar on Android 15 (no forced edge-to-edge). -->
-    <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
-        <item name="colorPrimary">#37474F</item>
-        <item name="colorPrimaryDark">#263238</item>
-        <item name="colorAccent">#FF8F00</item>
+    <!-- Keep the classic layout with system bars on Android 15 (no forced edge-to-edge). -->
+    <style name="AppTheme" parent="Base.AppTheme">
         <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
     </style>
 </resources>

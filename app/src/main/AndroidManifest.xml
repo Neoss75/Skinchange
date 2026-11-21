@@ -30,12 +30,19 @@
 
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/AppTheme.Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".HelpActivity"
+            android:exported="false"
+            android:label="@string/action_help"
+            android:theme="@style/AppTheme.Main" />
 
         <activity
             android:name=".SettingsActivity"

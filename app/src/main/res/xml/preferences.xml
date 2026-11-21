@@ -1,23 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
-    <Preference
-        app:key="igo_folder"
-        app:title="@string/pref_folder"
+    <!-- Filled in code: one entry per navigator plus "Add navigator" (SettingsActivity). -->
+    <PreferenceCategory
+        app:key="profiles_list"
+        app:title="@string/pref_cat_navigators"
         app:iconSpaceReserved="false" />
-    <SwitchPreferenceCompat
-        app:key="close_after_switch"
-        app:defaultValue="false"
-        app:title="@string/pref_close"
-        app:iconSpaceReserved="false" />
-    <SwitchPreferenceCompat
-        app:key="launch_igo"
-        app:defaultValue="false"
-        app:title="@string/pref_launch"
-        app:iconSpaceReserved="false" />
-    <!-- Opens a list of the apps installed on the device (see SettingsActivity.pickApp). -->
-    <Preference
-        app:key="igo_package"
-        app:dependency="launch_igo"
-        app:title="@string/pref_package"
-        app:iconSpaceReserved="false" />
+
+    <PreferenceCategory
+        app:title="@string/pref_cat_after"
+        app:iconSpaceReserved="false">
+        <SwitchPreferenceCompat
+            app:key="close_after_switch"
+            app:defaultValue="false"
+            app:title="@string/pref_close"
+            app:iconSpaceReserved="false" />
+        <SwitchPreferenceCompat
+            app:key="launch_igo"
+            app:defaultValue="false"
+            app:title="@string/pref_launch"
+            app:summary="@string/pref_launch_summary"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/pref_cat_look"
+        app:iconSpaceReserved="false">
+        <SwitchPreferenceCompat
+            app:key="animations"
+            app:defaultValue="true"
+            app:title="@string/pref_animations"
+            app:summary="@string/pref_animations_summary"
+            app:iconSpaceReserved="false" />
+        <Preference
+            app:key="help"
+            app:title="@string/pref_help"
+            app:summary="@string/pref_help_summary"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
 </PreferenceScreen>

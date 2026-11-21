@@ -2,15 +2,41 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Skin change</string>
     <string name="action_settings">Settings</string>
+    <string name="action_about">About</string>
+    <string name="about_text">Switches iGO skins by renaming the save/ux folders. The number of skins and their names come from the [skin_changer] section of sys.txt.\n\ngithub.com/Neoss75/Skinchange</string>
     <string name="version">Version %1$s</string>
 
     <string name="skin_fallback">Skin %1$d</string>
-    <string name="button_active">%1$s (active)</string>
-    <string name="button_missing">%1$s (folders not found)</string>
 
-    <string name="status_current">Active skin: %1$s</string>
-    <string name="status_no_sys_txt">sys.txt has no [skin_changer] section: the number of skins is taken from the folders.</string>
-    <string name="status_no_folder">iGO folder is not selected. Open the settings and choose it.</string>
+    <string name="hero_label">Active skin</string>
+    <string name="hero_sub">Skin %1$d of %2$d</string>
+    <string name="hero_empty">—</string>
+    <string name="hero_no_folder">Choose the iGO folder</string>
+
+    <string name="skins_title">Skins</string>
+    <string name="skin_state_active">On now</string>
+    <string name="skin_state_ready">Tap to switch</string>
+    <string name="skin_state_missing">Folders not found</string>
+    <string name="skin_state_switching">Switching…</string>
+
+    <string name="info_title">Details</string>
+    <string name="info_folder">iGO folder</string>
+    <string name="info_mode_ux">Only ux is switched</string>
+    <string name="info_mode_both">save and ux are switched</string>
+    <string name="info_sys">sys.txt</string>
+    <string name="info_sys_ok">[skin_changer] section, skins: %1$d</string>
+    <string name="info_sys_names">Names: %1$s</string>
+    <string name="info_sys_missing">No [skin_changer] section</string>
+    <string name="info_sys_missing_note">The number of skins is taken from the folders</string>
+    <string name="info_navigator">Navigator</string>
+    <string name="info_navigator_autostart">Starts after switching</string>
+    <string name="info_navigator_no_autostart">Autostart is off</string>
+    <string name="info_close">The app closes after switching</string>
+    <string name="info_not_set">Not selected</string>
+    <string name="info_internal_storage">Internal storage</string>
+    <string name="info_sd_card">Memory card %1$s</string>
+
+    <string name="status_no_folder">No iGO folder is selected for this navigator. Tap to choose it.</string>
     <string name="status_no_marker" tools:ignore="Typos">No save.ch with skin_1…skin_4 found in ux or save. Check the iGO folder in the settings.</string>
 
     <string name="toast_done">Done!</string>
@@ -27,6 +53,40 @@
     <string name="pref_package">Navigator package</string>
     <string name="pref_package_not_set">Not selected. Tap to choose from the installed apps.</string>
     <string name="pref_package_missing">%1$s (not installed)</string>
+    <string name="pref_animations">Animations</string>
+    <string name="pref_animations_summary">Moving background and effects on the main screen. They work even when the system animations are off.</string>
     <string name="apps_loading">Loading the list of apps…</string>
     <string name="app_selected">✓ %1$s</string>
+
+    <string name="action_help">Help</string>
+    <string name="profile_fallback">iGO %1$d</string>
+    <string name="pref_cat_navigators">Navigators</string>
+    <string name="pref_cat_after">After switching</string>
+    <string name="pref_cat_look">Look and help</string>
+    <string name="profile_add">Add navigator</string>
+    <string name="profile_add_summary">Another iGO with its own folder and skins (up to %1$d)</string>
+    <string name="profile_active">Shown on the main screen</string>
+    <string name="profile_no_folder">iGO folder is not selected</string>
+    <string name="profile_name">Name</string>
+    <string name="profile_name_hint">Leave empty to use the name of the navigator app.</string>
+    <string name="profile_name_auto">%1$s (automatic)</string>
+    <string name="profile_delete">Remove navigator</string>
+    <string name="profile_delete_summary">The skins and folders stay where they are</string>
+    <string name="profile_delete_confirm">Remove “%1$s” from the list? Its folders and skins are not touched.</string>
+    <string name="profile_delete_button">Remove</string>
+    <string name="pref_launch_summary">Opens the app of the navigator whose skin was switched</string>
+    <string name="pref_help">Help</string>
+    <string name="pref_help_summary">What the app can do and how to set it up</string>
+    <string name="help_1_title">What the app does</string>
+    <string name="help_1_body" formatted="false"><![CDATA[Switches iGO navigator skins with one tap — day, night, winter, whatever you have, 2 to 4 of them.<br><br>• A skin is switched on by renaming the <tt>save</tt> and <tt>ux</tt> folders: nothing is copied or deleted.<br>• If a rename fails, the folders are put back as they were.<br>• You can add several iGO navigators, each with its own folder and skins.<br>• After a switch the app can launch the navigator or close itself.]]></string>
+    <string name="help_2_title">Preparing the skins</string>
+    <string name="help_2_body" formatted="false" tools:ignore="Typos"><![CDATA[The active skin lives in <tt>save</tt> and <tt>ux</tt>, the others in numbered folders:<br><br><tt>IGO/<br>&#160;├ sys.txt<br>&#160;├ save/&#160;&#160;&#160;&#160;ux/&#160;&#160;&#160;&#160;← active<br>&#160;├ save_2/&#160;&#160;ux_2/<br>&#160;├ save_3/&#160;&#160;ux_3/<br>&#160;└ save_4/&#160;&#160;ux_4/</tt><br><br>Every skin needs a <tt>save.ch</tt> file with one line, its number: <tt>skin_1</tt>, <tt>skin_2</tt> and so on. It tells the app which skin is on, and it moves together with its folder.<br><br>If <tt>save.ch</tt> is in <tt>ux</tt> rather than <tt>save</tt>, only <tt>ux</tt> is switched.]]></string>
+    <string name="help_3_title">Names and count: sys.txt</string>
+    <string name="help_3_body" formatted="false" tools:ignore="Typos"><![CDATA[Add this section to <tt>sys.txt</tt> in the iGO folder:<br><br><tt>[skin_changer]<br>skin_quantity = 4<br>skin_1 = &quot;Day&quot;<br>skin_2 = &quot;Night&quot;<br>skin_3 = &quot;Winter&quot;<br>skin_4 = &quot;Contrast&quot;</tt><br><br>• <b>skin_quantity</b> — how many buttons to show: 2, 3 or 4.<br>• <b>skin_1…skin_4</b> — button labels. Without a name the button says “Skin N”.<br>• Without the section the number of skins is taken from the folders found.<br>• UTF-8, UTF-16 and Windows-1251 all work. Other sections are left untouched.]]></string>
+    <string name="help_4_title">Several navigators</string>
+    <string name="help_4_body" formatted="false"><![CDATA[If the device has two or three iGO builds, for example Primo and NextGen, add each one: <b>Settings → Navigators → Add navigator</b>, and choose its iGO folder and app.<br><br>Buttons for the navigators then appear at the top of the main screen. Pick one and the skin buttons and colours switch to it. The app remembers the last choice.<br><br>You can name a navigator yourself, otherwise the name of its app is used.]]></string>
+    <string name="help_5_title">First setup</string>
+    <string name="help_5_body" formatted="false"><![CDATA[1. Prepare the skin folders and <tt>save.ch</tt> files as described above.<br>2. Open <b>Settings</b>, pick the navigator and tap <b>iGO folder</b>. Find the folder that holds <tt>save</tt> and <tt>ux</tt>, tap “Use this folder” and allow access.<br>3. Optionally choose the <b>Navigator package</b> and turn on <b>Launch iGO after switching</b>.<br>4. Go back to the main screen and tap the skin you want.<br><br>Close the navigator before switching: a running iGO may keep the skin files open.]]></string>
+    <string name="help_6_title">If something goes wrong</string>
+    <string name="help_6_body" formatted="false" tools:ignore="Typos"><![CDATA[• <b>“save.ch not found”</b> — wrong folder, or <tt>save.ch</tt> has no <tt>skin_N</tt> line.<br>• <b>“Folders not found”</b> on a button — the <tt>save_N</tt> and <tt>ux_N</tt> folders of that skin are missing.<br>• <b>The skin did not change</b> — the app puts the folders back and shows the failed step. Make sure the navigator is closed.<br>• <b>No memory card</b> in the folder picker — turn it on in the picker’s “⋮” menu.<br>• <b>The device feels slow</b> — turn the animations off in the settings.]]></string>
 </resources>

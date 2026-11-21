@@ -64,13 +64,15 @@ class SkinSwitcher(private val fs: SkinFs) {
         }
     }
 
-    fun switchTo(target: Int): Result {
+    /** Switches to [target]; [onStep] gets (renames done, renames total) after each rename. */
+    fun switchTo(target: Int, onStep: (Int, Int) -> Unit = { _, _ -> }): Result {
         val state = state() ?: return Result.Failed("state", rolledBack = true)
         if (target !in state.available || target == state.current) {
             return Result.Failed("not available", rolledBack = true)
         }
         val done = mutableListOf<Pair<String, String>>()
-        for ((from, to) in plan(state, target)) {
+        val steps = plan(state, target)
+        for ((from, to) in steps) {
             // Never overwrite: the storage provider would silently pick another name.
             val ok = fs.dirExists(from) && !fs.dirExists(to) && fs.rename(from, to)
             if (!ok) {
@@ -78,6 +80,7 @@ class SkinSwitcher(private val fs: SkinFs) {
                 return Result.Failed("$from -> $to", rolledBack)
             }
             done += from to to
+            onStep(done.size, steps.size)
         }
         return Result.Ok
     }

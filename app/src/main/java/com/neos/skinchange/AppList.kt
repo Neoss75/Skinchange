@@ -42,13 +42,17 @@ object AppList {
         return sort(apps, known)
     }
 
-    /** "iGO Primo (com.nng.igo.primong)", or null if the package is not installed. */
-    fun describe(context: Context, packageName: String): String? = try {
+    /** "iGO Primo", or null if the package is not installed. */
+    fun label(context: Context, packageName: String): String? = try {
         val pm = context.packageManager
         @Suppress("DEPRECATION")
         val info = pm.getApplicationInfo(packageName, 0)
-        "${pm.getApplicationLabel(info)} ($packageName)"
+        pm.getApplicationLabel(info).toString()
     } catch (e: PackageManager.NameNotFoundException) {
         null
     }
+
+    /** "iGO Primo (com.nng.igo.primong)", or null if the package is not installed. */
+    fun describe(context: Context, packageName: String): String? =
+        label(context, packageName)?.let { "$it ($packageName)" }
 }
