@@ -25,4 +25,8 @@
     <string name="pref_close">Close the app after switching</string>
     <string name="pref_launch">Launch iGO after switching</string>
     <string name="pref_package">Navigator package</string>
+    <string name="pref_package_not_set">Not selected. Tap to choose from the installed apps.</string>
+    <string name="pref_package_missing">%1$s (not installed)</string>
+    <string name="apps_loading">Loading the list of apps…</string>
+    <string name="app_selected">✓ %1$s</string>
 </resources>

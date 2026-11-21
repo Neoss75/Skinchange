@@ -25,4 +25,8 @@
     <string name="pref_close">Закрывать программу после смены скина</string>
     <string name="pref_launch">Запускать iGO после смены скина</string>
     <string name="pref_package">Пакет навигатора</string>
+    <string name="pref_package_not_set">Не выбран. Нажмите, чтобы выбрать из установленных приложений.</string>
+    <string name="pref_package_missing">%1$s (не установлен)</string>
+    <string name="apps_loading">Загружаю список приложений…</string>
+    <string name="app_selected">✓ %1$s</string>
 </resources>

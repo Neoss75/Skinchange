@@ -14,12 +14,10 @@
         app:defaultValue="false"
         app:title="@string/pref_launch"
         app:iconSpaceReserved="false" />
-    <ListPreference
+    <!-- Opens a list of the apps installed on the device (see SettingsActivity.pickApp). -->
+    <Preference
         app:key="igo_package"
         app:dependency="launch_igo"
-        app:entries="@array/navigator_packages"
-        app:entryValues="@array/navigator_packages"
         app:title="@string/pref_package"
-        app:useSimpleSummaryProvider="true"
         app:iconSpaceReserved="false" />
 </PreferenceScreen>
