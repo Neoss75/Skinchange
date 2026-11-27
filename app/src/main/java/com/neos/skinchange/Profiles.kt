@@ -69,7 +69,7 @@ class Profiles(private val context: Context) {
             .putString(KEY_LIST, rest.joinToString(","))
             .remove(key(id, "name")).remove(key(id, "folder")).remove(key(id, "package"))
             .apply()
-        if (folder != null && rest.none { read(it).folder == folder }) {
+        if (folder != null && folder.scheme != "file" && rest.none { read(it).folder == folder }) {
             try {
                 context.contentResolver.releasePersistableUriPermission(
                     folder, Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION,
@@ -90,15 +90,19 @@ class Profiles(private val context: Context) {
 
     /** "Internal storage/iGO" or "Memory card 1234-ABCD/iGO". */
     fun describeFolder(uri: Uri): String {
-        val id = treeId(uri) ?: return uri.toString()
-        val (volume, path) = SkinStyle.splitTreeId(id) ?: return id
+        val (volume, path) = split(uri) ?: return uri.path ?: uri.toString()
         val storage = if (volume == "primary") context.getString(R.string.info_internal_storage)
         else context.getString(R.string.info_sd_card, volume)
         return if (path.isEmpty()) storage else "$storage/$path"
     }
 
     private fun folderName(uri: Uri): String? =
-        treeId(uri)?.let(SkinStyle::splitTreeId)?.second?.substringAfterLast('/')
+        if (uri.scheme == "file") uri.path?.trimEnd('/')?.substringAfterLast('/')
+        else split(uri)?.second?.substringAfterLast('/')
+
+    private fun split(uri: Uri): Pair<String, String>? =
+        if (uri.scheme == "file") uri.path?.let(SkinStyle::splitFilePath)
+        else treeId(uri)?.let(SkinStyle::splitTreeId)
 
     private fun treeId(uri: Uri): String? = try {
         DocumentsContract.getTreeDocumentId(uri)

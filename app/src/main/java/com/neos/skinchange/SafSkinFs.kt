@@ -3,12 +3,18 @@ package com.neos.skinchange
 import android.content.Context
 import android.net.Uri
 import androidx.documentfile.provider.DocumentFile
+import java.io.File
 import java.io.IOException
 
-/** [SkinFs] on a folder picked through the Storage Access Framework. */
+/**
+ * [SkinFs] on a folder picked through the Storage Access Framework, or on a plain `file://`
+ * path where a head unit has no system folder picker (see [StorageFolders]).
+ */
 class SafSkinFs(private val context: Context, treeUri: Uri) : SkinFs {
 
-    private val root: DocumentFile? = DocumentFile.fromTreeUri(context, treeUri)
+    private val root: DocumentFile? =
+        if (treeUri.scheme == "file") treeUri.path?.let { DocumentFile.fromFile(File(it)) }
+        else DocumentFile.fromTreeUri(context, treeUri)
 
     private fun dir(name: String) = root?.findFile(name)?.takeIf { it.isDirectory }
 

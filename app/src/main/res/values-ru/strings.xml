@@ -89,4 +89,17 @@
     <string name="help_5_body" formatted="false"><![CDATA[1. Подготовьте папки скинов и файлы <tt>save.ch</tt>, как описано выше.<br>2. Откройте <b>Настройки</b>, выберите навигатор и нажмите <b>Папка iGO</b>. Найдите папку, в которой лежат <tt>save</tt> и <tt>ux</tt>, нажмите «Использовать эту папку» и разрешите доступ.<br>3. По желанию выберите <b>Пакет навигатора</b> и включите <b>Запускать iGO после смены скина</b>.<br>4. Вернитесь на главный экран и нажмите на нужный скин.<br><br>Перед сменой скина лучше закрыть навигатор: запущенный iGO может держать файлы скина открытыми.]]></string>
     <string name="help_6_title">Если что-то не так</string>
     <string name="help_6_body" formatted="false" tools:ignore="Typos"><![CDATA[• <b>«save.ch не найден»</b> — выбрана не та папка или в <tt>save.ch</tt> нет строки <tt>skin_N</tt>.<br>• <b>«Папки не найдены»</b> на кнопке — нет папок <tt>save_N</tt> и <tt>ux_N</tt> этого скина.<br>• <b>Скин не сменился</b> — программа вернёт папки обратно и покажет, на каком шаге была ошибка. Проверьте, что навигатор закрыт.<br>• <b>Не видно карты памяти</b> при выборе папки — включите её показ в меню «⋮» окна выбора.<br>• <b>Устройство тормозит</b> — выключите анимации в настройках.]]></string>
+    <string name="folder_found_title">Найденные папки iGO</string>
+    <string name="folder_none_found">Папки iGO не найдены</string>
+    <string name="folder_enter_path">Указать путь вручную…</string>
+    <string name="folder_path_title">Путь к папке iGO</string>
+    <string name="folder_path_hint">Папка, в которой лежат \"ux\" и \"save\", например /storage/sdcard1/iGO</string>
+    <string name="toast_storage_denied">Без доступа к памяти папку iGO не выбрать</string>
+    <string name="folder_no_picker">На устройстве нет системного окна выбора папок, а Android 11 и новее не дают выбрать папку по-другому.</string>
+    <string name="help_7_title">Магнитолы без окна выбора папок</string>
+    <string name="help_7_body" formatted="false" tools:ignore="Typos"><![CDATA[На многих магнитолах нет системного окна выбора папок. Есть ли оно, видно в настройках навигатора: пункт <b>Системное окно выбора папок</b> сразу под <b>Папка iGO</b>.<br><br>• <b>Android 10 и старше:</b> при нажатии <b>Папка iGO</b> программа попросит доступ к памяти, сама найдёт папки с <tt>ux</tt> или <tt>save</tt> во внутренней памяти, на картах и флешках и покажет список. Если нужной папки в нём нет, выберите «Указать путь вручную…» и введите путь, например <tt>/storage/sdcard1/iGO</tt>.<br>• <b>Android 11 и новее</b> без системного окна выбрать папку нельзя: это ограничение самой прошивки.]]></string>
+    <string name="pref_picker">Системное окно выбора папок</string>
+    <string name="pref_picker_yes">Есть · %1$s</string>
+    <string name="pref_picker_list">Нет. Папка iGO выбирается из найденных или по пути</string>
+    <string name="pref_picker_no_way">Нет. Android 11 и новее не дают выбрать папку по-другому</string>
 </resources>

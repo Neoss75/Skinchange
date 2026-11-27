@@ -1,8 +1,16 @@
 package com.neos.skinchange
 
+import android.Manifest
+import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.os.Environment
+import android.util.Log
+import android.widget.EditText
+import android.widget.FrameLayout
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
@@ -11,6 +19,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.EditTextPreference
 import androidx.preference.Preference
@@ -20,6 +29,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.File
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -116,6 +126,11 @@ class SettingsActivity : AppCompatActivity() {
             if (uri != null) onFolderPicked(uri)
         }
 
+        private val storagePermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { ok ->
+            if (ok) showFoundFolders()
+            else Toast.makeText(requireContext(), R.string.toast_storage_denied, Toast.LENGTH_LONG).show()
+        }
+
         private fun profile(): Profile? = profiles.get(id)
 
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -132,8 +147,15 @@ class SettingsActivity : AppCompatActivity() {
                 }
             }
             findPreference<Preference>(KEY_FOLDER)?.setOnPreferenceClickListener {
-                pickFolder.launch(profile()?.folder)
+                chooseFolder()
                 true
+            }
+            findPreference<Preference>(KEY_PICKER)?.apply {
+                summary = pickerSummary()
+                setOnPreferenceClickListener {
+                    startActivity(Intent(requireContext(), HelpActivity::class.java))
+                    true
+                }
             }
             findPreference<Preference>(KEY_PACKAGE)?.setOnPreferenceClickListener {
                 pickApp()
@@ -213,12 +235,104 @@ class SettingsActivity : AppCompatActivity() {
             }
         }
 
+        /** Whether the system folder picker exists: many head units ship without it. */
+        private fun pickerSummary(): String {
+            val pkg = StorageFolders.pickerPackage(requireContext())
+            return when {
+                pkg != null -> getString(R.string.pref_picker_yes, pkg)
+                Build.VERSION.SDK_INT >= 30 -> getString(R.string.pref_picker_no_way)
+                else -> getString(R.string.pref_picker_list)
+            }
+        }
+
+        /** The system folder picker, or our own list where a head unit has none. */
+        private fun chooseFolder() {
+            if (StorageFolders.pickerPackage(requireContext()) == null) return chooseFolderWithoutPicker()
+            try {
+                pickFolder.launch(profile()?.folder?.takeIf { it.scheme != "file" })
+            } catch (e: ActivityNotFoundException) {
+                Log.w(TAG, "No system folder picker", e)
+                chooseFolderWithoutPicker()
+            }
+        }
+
+        private fun chooseFolderWithoutPicker() {
+            val context = requireContext()
+            when {
+                Build.VERSION.SDK_INT >= 30 ->
+                    MaterialAlertDialogBuilder(context)
+                        .setTitle(R.string.pref_folder)
+                        .setMessage(R.string.folder_no_picker)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .show()
+                ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
+                    PackageManager.PERMISSION_GRANTED -> storagePermission.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                else -> showFoundFolders()
+            }
+        }
+
+        /** iGO folders found on the internal storage, memory cards and USB drives, plus "enter the path". */
+        private fun showFoundFolders() {
+            val context = requireContext()
+            lifecycleScope.launch {
+                val found = withContext(Dispatchers.IO) { StorageFolders.findOnStorage(context) }
+                val items = found.map { it.absolutePath } + getString(R.string.folder_enter_path)
+                MaterialAlertDialogBuilder(context)
+                    .setTitle(if (found.isEmpty()) R.string.folder_none_found else R.string.folder_found_title)
+                    .setItems(items.toTypedArray()) { _, which ->
+                        if (which < found.size) onFolderPicked(Uri.fromFile(found[which])) else enterPath()
+                    }
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show()
+            }
+        }
+
+        private fun enterPath() {
+            val context = requireContext()
+            @Suppress("DEPRECATION")
+            val start = profile()?.folder?.takeIf { it.scheme == "file" }?.path
+                ?: (Environment.getExternalStorageDirectory().absolutePath + "/")
+            val input = EditText(context).apply {
+                setSingleLine()
+                setText(start)
+                setSelection(start.length)
+            }
+            val pad = (20 * resources.displayMetrics.density).toInt()
+            val box = FrameLayout(context).apply {
+                setPadding(pad, pad / 2, pad, 0)
+                addView(input)
+            }
+            MaterialAlertDialogBuilder(context)
+                .setTitle(R.string.folder_path_title)
+                .setMessage(R.string.folder_path_hint)
+                .setView(box)
+                .setPositiveButton(android.R.string.ok) { _, _ ->
+                    val path = input.text.toString().trim().trimEnd('/')
+                    if (path.isNotEmpty()) onFolderPicked(Uri.fromFile(File(path)))
+                }
+                .setNegativeButton(android.R.string.cancel, null)
+                .show()
+        }
+
         private fun onFolderPicked(uri: Uri) {
             val context = requireContext()
-            context.contentResolver.takePersistableUriPermission(
-                uri, Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION,
-            )
-            val ok = SkinSwitcher(SafSkinFs(context, uri)).state() != null
+            if (uri.scheme != "file") {
+                // Keep access to the folder after a reboot. Some head units hand out folders
+                // that cannot be kept; the folder then works until the next reboot.
+                try {
+                    context.contentResolver.takePersistableUriPermission(
+                        uri, Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION,
+                    )
+                } catch (e: SecurityException) {
+                    Log.w(TAG, "Cannot keep access to $uri", e)
+                }
+            }
+            val ok = try {
+                SkinSwitcher(SafSkinFs(context, uri)).state() != null
+            } catch (e: RuntimeException) {
+                Log.w(TAG, "Cannot read $uri", e)
+                false
+            }
             Toast.makeText(context, if (ok) R.string.toast_folder_ok else R.string.toast_folder_bad, Toast.LENGTH_LONG)
                 .show()
             if (ok) {
@@ -236,10 +350,12 @@ class SettingsActivity : AppCompatActivity() {
     companion object {
         /** Opens the settings of this navigator right away. */
         const val EXTRA_PROFILE = "profile"
+        private const val TAG = "Settings"
         private const val KEY_PROFILES = "profiles_list"
         private const val KEY_HELP = "help"
         private const val KEY_NAME = "p_name"
         private const val KEY_FOLDER = "p_folder"
+        private const val KEY_PICKER = "p_picker"
         private const val KEY_PACKAGE = "p_package"
         private const val KEY_DELETE = "p_delete"
     }

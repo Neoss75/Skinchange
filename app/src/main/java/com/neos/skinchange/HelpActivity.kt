@@ -74,6 +74,7 @@ class HelpActivity : AppCompatActivity() {
             Triple(R.drawable.ic_file, R.string.help_3_title, R.string.help_3_body),
             Triple(R.drawable.ic_car, R.string.help_4_title, R.string.help_4_body),
             Triple(R.drawable.ic_settings, R.string.help_5_title, R.string.help_5_body),
+            Triple(R.drawable.ic_folder, R.string.help_7_title, R.string.help_7_body),
             Triple(R.drawable.ic_warning, R.string.help_6_title, R.string.help_6_body),
         )
     }

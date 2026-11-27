@@ -89,4 +89,17 @@
     <string name="help_5_body" formatted="false"><![CDATA[1. Prepare the skin folders and <tt>save.ch</tt> files as described above.<br>2. Open <b>Settings</b>, pick the navigator and tap <b>iGO folder</b>. Find the folder that holds <tt>save</tt> and <tt>ux</tt>, tap “Use this folder” and allow access.<br>3. Optionally choose the <b>Navigator package</b> and turn on <b>Launch iGO after switching</b>.<br>4. Go back to the main screen and tap the skin you want.<br><br>Close the navigator before switching: a running iGO may keep the skin files open.]]></string>
     <string name="help_6_title">If something goes wrong</string>
     <string name="help_6_body" formatted="false" tools:ignore="Typos"><![CDATA[• <b>“save.ch not found”</b> — wrong folder, or <tt>save.ch</tt> has no <tt>skin_N</tt> line.<br>• <b>“Folders not found”</b> on a button — the <tt>save_N</tt> and <tt>ux_N</tt> folders of that skin are missing.<br>• <b>The skin did not change</b> — the app puts the folders back and shows the failed step. Make sure the navigator is closed.<br>• <b>No memory card</b> in the folder picker — turn it on in the picker’s “⋮” menu.<br>• <b>The device feels slow</b> — turn the animations off in the settings.]]></string>
+    <string name="folder_found_title">iGO folders found</string>
+    <string name="folder_none_found">No iGO folder found</string>
+    <string name="folder_enter_path">Enter the path…</string>
+    <string name="folder_path_title">Path to the iGO folder</string>
+    <string name="folder_path_hint">The folder that holds \"ux\" and \"save\", for example /storage/sdcard1/iGO</string>
+    <string name="toast_storage_denied">The iGO folder cannot be chosen without access to the storage</string>
+    <string name="folder_no_picker">This device has no system folder picker, and Android 11 and newer allow no other way to choose a folder.</string>
+    <string name="help_7_title">Head units without a folder picker</string>
+    <string name="help_7_body" formatted="false" tools:ignore="Typos"><![CDATA[Many head units have no system folder picker. Whether yours has one is shown in the navigator settings: <b>System folder picker</b> right below <b>iGO folder</b>.<br><br>• <b>Android 10 and older:</b> tapping <b>iGO folder</b> asks for storage access, finds folders with <tt>ux</tt> or <tt>save</tt> on the internal storage, memory cards and USB drives and lists them. If the folder is not listed, choose “Enter the path…” and type it, for example <tt>/storage/sdcard1/iGO</tt>.<br>• <b>Android 11 and newer</b> without the system picker cannot choose a folder at all: this is a limit of the firmware.]]></string>
+    <string name="pref_picker">System folder picker</string>
+    <string name="pref_picker_yes">Available · %1$s</string>
+    <string name="pref_picker_list">Missing. The iGO folder is chosen from the found folders or by path</string>
+    <string name="pref_picker_no_way">Missing. Android 11 and newer allow no other way to choose the folder</string>
 </resources>

@@ -19,6 +19,20 @@ object SkinStyle {
     fun palette(skin: Int): Palette = palettes[Math.floorMod(skin - 1, palettes.size)]
 
     /** Tree URI document id "primary:iGO/x" -> ("primary", "iGO/x"); null when it is not a tree id. */
+    /** The same for a plain path: "/storage/emulated/0/iGO" -> ("primary", "iGO"). */
+    @Suppress("SdCardPath")
+    fun splitFilePath(path: String): Pair<String, String>? {
+        val p = path.trimEnd('/')
+        for (internal in listOf("/storage/emulated/0", "/sdcard", "/mnt/sdcard")) {
+            if (p == internal || p.startsWith("$internal/")) return "primary" to p.removePrefix(internal).trim('/')
+        }
+        if (p.startsWith("/storage/")) {
+            val rest = p.removePrefix("/storage/")
+            return rest.substringBefore('/') to rest.substringAfter('/', "")
+        }
+        return null
+    }
+
     fun splitTreeId(id: String): Pair<String, String>? {
         if (':' !in id) return null
         return id.substringBefore(':') to id.substringAfter(':').trim('/')
