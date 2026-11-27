@@ -12,6 +12,11 @@
         app:key="p_folder"
         app:title="@string/pref_folder"
         app:iconSpaceReserved="false" />
+    <!-- Tells whether the device has the system folder picker; opens the help. -->
+    <Preference
+        app:key="p_picker"
+        app:title="@string/pref_picker"
+        app:iconSpaceReserved="false" />
     <Preference
         app:key="p_package"
         app:title="@string/pref_package"

@@ -25,4 +25,13 @@ class SkinStyleTest {
         assertEquals("primary" to "", SkinStyle.splitTreeId("primary:"))
         assertNull(SkinStyle.splitTreeId("raw"))
     }
+
+    @Test
+    fun splitFilePath() {
+        assertEquals("primary" to "iGO", SkinStyle.splitFilePath("/storage/emulated/0/iGO/"))
+        assertEquals("primary" to "Navi/iGO", SkinStyle.splitFilePath("/sdcard/Navi/iGO"))
+        assertEquals("primary" to "", SkinStyle.splitFilePath("/mnt/sdcard"))
+        assertEquals("sdcard1" to "iGO", SkinStyle.splitFilePath("/storage/sdcard1/iGO"))
+        assertEquals(null, SkinStyle.splitFilePath("/mnt/usbhost/iGO"))
+    }
 }
